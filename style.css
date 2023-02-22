@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+.wrapper-page {
+    width: 80%;
+    margin: 100px auto ;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+    gap: 30px
+}
+header {
+    width: 80%;
+    margin: 70px auto;
+}
+.board{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 60%;
+    margin: 0 auto;
+
+}
+.board > div {
+    border: 1px solid red;
+    width: 180px;
+    height: 180px;
+}
+
