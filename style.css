@@ -11,9 +11,13 @@
     grid-template-rows: 1fr 3fr;
     gap: 30px
 }
-header {
+header, .wrapper-options {
     width: 80%;
-    margin: 70px auto;
+    margin: 20px auto;
+    text-align: center;
+}
+.wrapper-info{
+    text-align: center;
 }
 .board{
     display: grid;
