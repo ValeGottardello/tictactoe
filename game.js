@@ -3,13 +3,13 @@
 //     for (let i = 0; i < winingOption.length; i++) {
 //         if (winingOption[i][0].text() === 'X' && winingOption[i][1].text() === 'X' && winingOption[i][2].text() === 'X')
 //          {
-           
+
 //             playerOneScore = playerOneScore + 1;
 //             //restart the game
-           
+
 //         } else if (winingOption[i][0].text() === 'O' && winingOption[i][1].text() === 'O' &&
 //             winingOption[i][2].text() === 'O') {
-       
+
 //             playerTwoScore = playerTwoScore + 1;
 //            //restart the game
 //         }
@@ -66,7 +66,7 @@ const boxes = document.querySelectorAll(".board button")
 
 //checks if any of the winning arrays contains "x" or "o"
 function gameTicTacToe() {
-    for (let i=0 ; i < winingOption.length ; i++) {
+    for (let i = 0; i < winningOptions.length; i++) {
         //X WINS
         if (winningOptions[i][0].classList.contains("X") && winningOptions[i][1].classList.contains("X") && winningOptions[i][2].classList.contains("X")) {
 
@@ -76,7 +76,7 @@ function gameTicTacToe() {
             document.querySelector("p").textContent = "Player 1 win"
             //Display button reset
             btnReset.style.display = "block"
-
+        //O WINS
         } else if (winningOptions[i][0].classList.contains("O") && winningOptions[i][1].classList.contains("O") && winningOptions[i][2].classList.contains("0")) {
 
             //update score of player
@@ -87,47 +87,47 @@ function gameTicTacToe() {
             btnReset.style.display = "block"
 
         } else {
-         
+
             document.querySelector("p").textContent = "It's a tie"
             //Display button reset
             btnReset.style.display = "block"
         }
-      };
+    };
 }
 
 
 
 //change the player
-boxes.forEach(box =>{
-    box.addEventListener("click",switchPlayers)
+boxes.forEach(box => {
+    box.addEventListener("click", switchPlayers)
 })
 
 function switchPlayers(event) {
-    if ($(this).text().length === 1) {
-        event.target
-        $(this).off('click'); // if there is a value in the button, this disables the click
-    } else if (player == 1) {
+    let buttonClicked = event.target
+    buttonClicked.disabled = true
+    if (player == 1) {
         //player one play
         event.target.classList.add("X")
         //this changes the player turn
-        player = 2; 
+        player = 2;
         // change text of turn of player
         document.querySelector("span").textContent = "Player Two"
     } else {
         //player two play
         event.target.classList.add("O")
         //changes player turn
-        player = 1; 
+        player = 1;
         // change text of turn of player
         document.querySelector("span").textContent = "Player One"
-    };
+    }
     //call game function
     gameTicTacToe();
     //call reset with conditions
     reStart();
 }
+
 //return each element to 0
-function reStart () {
+function reStart() {
 
 }
 
@@ -139,16 +139,16 @@ winningOptions = [
     [`${document.querySelector("#b-one")}`, `${document.querySelector("#b-two")}`, `${document.querySelector("#b-three")}`],
 
     [`${document.querySelector("#c-one")}`, `${document.querySelector("#c-two")}`, `${document.querySelector("#c-three")}`],
-    
+
     //verticals
     [`${document.querySelector("#a-one")}`, `${document.querySelector("#b-one")}`, `${document.querySelector("#c-one")}`],
 
-    [`${document.querySelector("#a-two")}`,`${document.querySelector("#b-two")}`, `${document.querySelector("#c-two")}` ],
+    [`${document.querySelector("#a-two")}`, `${document.querySelector("#b-two")}`, `${document.querySelector("#c-two")}`],
 
-    [`${document.querySelector("#a-three")}`,`${document.querySelector("#b-three")}`, `${document.querySelector("#c-three")}`],
-    
+    [`${document.querySelector("#a-three")}`, `${document.querySelector("#b-three")}`, `${document.querySelector("#c-three")}`],
+
     //diagonals
-    [`${document.querySelector("#a-one")}`,`${document.querySelector("#b-two")}`,`${document.querySelector("#c-three")}`],
+    [`${document.querySelector("#a-one")}`, `${document.querySelector("#b-two")}`, `${document.querySelector("#c-three")}`],
 
-    [`${document.querySelector("#a-three")}`,`${document.querySelector("#b-two")}`,`${document.querySelector("#c-one")}`]
+    [`${document.querySelector("#a-three")}`, `${document.querySelector("#b-two")}`, `${document.querySelector("#c-one")}`]
 ]
