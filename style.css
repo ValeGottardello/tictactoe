@@ -27,9 +27,12 @@ header, .wrapper-options {
     margin: 0 auto;
 
 }
-.board > div {
-    border: 1px solid red;
+.board > button {
+    border: 1px solid purple;
     width: 180px;
     height: 180px;
+    background-color: plum;
 }
-
+.reset{
+    display: none;
+}
