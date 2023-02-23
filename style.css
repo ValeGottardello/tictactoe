@@ -7,13 +7,10 @@
     margin: 100px auto ;
     border: 1px solid black;
     display: grid;
-    grid-template-columns: 1fr;
     grid-template-rows: 1fr 3fr;
     gap: 30px
 }
 header, .wrapper-options {
-    width: 80%;
-    margin: 20px auto;
     text-align: center;
 }
 .wrapper-info{
@@ -28,6 +25,7 @@ header, .wrapper-options {
 
 }
 .board > button {
+    
     border: 1px solid purple;
     width: 180px;
     height: 180px;
