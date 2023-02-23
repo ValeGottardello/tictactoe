@@ -10,47 +10,46 @@
 </head>
 
 <body>
+    <header>
+        <h1>TIC TAC TOE</h1>
+    </header>
     <div class="wrapper-page">
-        <header>
-            <h1>TIC TAC TOE</h1>
-        </header>
         <div class="wrapper-main">
-            <!-- display none wrapper-game when someone win -->
-            <div class="wrapper-game">
-                <div class="wrapper-info">
+                <section>
                     <!-- who is the turn -->
-                    <h2>The turn is for: <span class="nameof-player">Player One</span>
-                    </h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo perspiciatis molestias
-                        reprehenderit provident exercitationem
-                        <!-- info message of how to play -->
+                    <h2 class="nameof-player">The turn is for: Player One</h2>
+                    <p>
+                        <!-- info who win -->
                     </p>
-                </div>
+                </section>
                 <section>
                     <article class="board">
                         <!-- buttons goes here -->
-                        <button id="a-one">one</button>
-                        <button id="a-two">two</button>
-                        <button id="a-three">three</button>
-                        <button id="b-one">four</button>
-                        <button id="b-two">five</button>
-                        <button id="b-three">six</button>
-                        <button id="c-one">seven</button>
-                        <button id="c-two">eight</button>
-                        <button id="c-three">nine</button>
+                        <button id="a-one"></button>
+                        <button id="a-two"></button>
+                        <button id="a-three"></button>
+                        <button id="b-one"></button>
+                        <button id="b-two"></button>
+                        <button id="b-three"></button>
+                        <button id="c-one"></button>
+                        <button id="c-two"></button>
+                        <button id="c-three"></button>
                     </article>
                 </section>
-            </div>
-            <div class="wrapper-options">
-                <aside>
-                    <article>
-                        <!-- options of players -->
-                        <button class="one-player">Just you and me!</button>
-                        <button class="two-player">Play with somebody!</button>
-                        <button class="reset">Play Again</button>
-                    </article>
-                </aside>
-            </div>
+        </div>
+        <div class="wrapper-options">
+            <aside>
+                <article>
+                    <!-- name of players -->
+                    <label for="name">Player One</label>
+                    <input type="text" value="" placeholder="Name" class="p-one">
+                    <label for="name">Player Two</label>
+                    <input type="text" value="" placeholder="Name" class="p-two">
+                    <button class="">Let's Play!</button>
+                    <!-- options of players -->
+                    <button class="reset">Play Again</button>
+                </article>
+            </aside>
         </div>
     </div>
     <script src="game.js"></script>

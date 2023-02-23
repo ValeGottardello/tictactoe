@@ -6,10 +6,14 @@ let playerTwoScore = 0
 let playerTurn = "Player 1"
 //dom elements buttons
 const btnReset = document.querySelector(".reset")
-const btnOnePlayer = document.querySelector(".one-player")
-const btnTwoPlayer = document.querySelector(".two-player")
-// //dom elements divs -- choicesgame
+let name1 = document.querySelector(".p-one").value
+let name2 = document.querySelector(".p-two").value
+const start = document.querySelector(".start")
+// //dom elements buttons -- choicesgame
 const boxes = document.querySelectorAll(".board button")
+const text = document.querySelector("h2")
+const whoWins = document.querySelector("p")
+
 
 let a1 = document.querySelector("#a-one")
 let a2 = document.querySelector("#a-two")
@@ -35,6 +39,8 @@ let c3 = document.querySelector("#c-three")
 // a1+b2+c3
 // a3+b2+c1
 
+//player one = x
+//player two = o
 //checks if any of the winning arrays contains "x" or "o"
 function gameTicTacToe() {
     //X WINS
@@ -44,50 +50,44 @@ function gameTicTacToe() {
         a1.classList.contains("X") && b1.classList.contains("X") && c1.classList.contains("X") ||
         a2.classList.contains("X") && b2.classList.contains("X") && c2.classList.contains("X") ||
         a3.classList.contains("X") && b3.classList.contains("X") && c3.classList.contains("X") ||
-        a1.classList.contains("X") && a2.classList.contains("X") && a3.classList.contains("X") ||
-        b1.classList.contains("X") && b2.classList.contains("X") && b3.classList.contains("X") ||
-        c1.classList.contains("X") && b2.classList.contains("X") && c3.classList.contains("X")) {
+        a1.classList.contains("X") && b2.classList.contains("X") && c3.classList.contains("X") ||
+        a3.classList.contains("X") && b2.classList.contains("X") && c1.classList.contains("X")) {
 
         //update score of player
         playerOneScore++;
         //Change text with the winner
-        document.querySelector("p").textContent = "Player 1 win"
+        whoWins.textContent = `${name1} win!`
+        whoWins.style.display = "block"
+        text.style.display = "none"
         //Display button reset
-        btnReset.style.display = "block"
-    
-    //O WINS
+        setTimeout(reStart, 2000)
+        //O WINS
     } else if (a1.classList.contains("O") && a2.classList.contains("O") && a3.classList.contains("O") ||
         b1.classList.contains("O") && b2.classList.contains("O") && b3.classList.contains("O") ||
         c1.classList.contains("O") && c2.classList.contains("O") && c3.classList.contains("O") ||
         a1.classList.contains("O") && b1.classList.contains("O") && c1.classList.contains("O") ||
         a2.classList.contains("O") && b2.classList.contains("O") && c2.classList.contains("O") ||
         a3.classList.contains("O") && b3.classList.contains("O") && c3.classList.contains("O") ||
-        a1.classList.contains("O") && a2.classList.contains("O") && a3.classList.contains("O") ||
-        b1.classList.contains("O") && b2.classList.contains("O") && b3.classList.contains("O") ||
-        c1.classList.contains("O") && b2.classList.contains("O") && c3.classList.contains("O")) {
+        a1.classList.contains("O") && b2.classList.contains("O") && c3.classList.contains("O") ||
+        a3.classList.contains("O") && b2.classList.contains("O") && c1.classList.contains("O")) {
 
         //update score of player
         playerTwoScore++
         //Change text with the winner
-        document.querySelector("p").textContent = "Player Two win"
+        whoWins.textContent = `${name2} win!`
+        whoWins.style.display = "block"
+        text.style.display = "none"
         //Display button reset
-        btnReset.style.display = "block"
+        setTimeout(reStart, 2000)
 
-    } else {
-
-        document.querySelector("p").textContent = "It's a tie"
-        //Display button reset
-        btnReset.style.display = "block"
     }
 }
-
-//player one = x
-//player two = o
 
 //change the player
 boxes.forEach(box => {
     box.addEventListener("click", switchPlayers)
 })
+btnReset.addEventListener("click",reStart)
 
 function switchPlayers(event) {
     let buttonClicked = event.target
@@ -98,7 +98,7 @@ function switchPlayers(event) {
         //this changes the player turn
         player = 2;
         // change text of turn of player
-        document.querySelector("span").textContent = "Player Two"
+        text.textContent = `Player ${name1}`
         //change style of the box
         event.target.style.backgroundColor = "purple"
 
@@ -108,21 +108,32 @@ function switchPlayers(event) {
         //changes player turn
         player = 1;
         // change text of turn of player
-        document.querySelector("span").textContent = "Player One"
+        text.textContent = `Player ${name2}`
         event.target.style.backgroundColor = "deeppink"
-
     }
     //call game function
     gameTicTacToe();
     //call reset with conditions
-    reStart();
 }
 
 //return each element to 0
-function reStart() {
-
+function reStart(event) {
+    player = 1
+    whoWins.style.display = "none"
+    text.style.display = "block"
+    for (let i = 0; i < boxes.length ; i++) {
+        boxes[i].style.backgroundColor = "plum"
+        boxes[i].classList.remove("X")
+        boxes[i].classList.remove("O")
+        boxes[i].disabled = false
+    }
+    
 }
 
+start.addEventListener("click", () => {
+    name1 = document.querySelector(".p-one").value 
+    name2 =document.querySelector(".p-two").value
+})
 
 
 
