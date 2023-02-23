@@ -1,9 +1,9 @@
 
 
 let player = 1
-let playerOneScore = 0
-let playerTwoScore = 0
 let playerTurn = "Player 1"
+let player1score = 0
+let player2score = 0
 //dom elements buttons
 const btnReset = document.querySelector(".reset")
 let name1 = document.querySelector(".p-one").value
@@ -13,7 +13,10 @@ const start = document.querySelector(".start")
 const boxes = document.querySelectorAll(".board button")
 const text = document.querySelector("h2")
 const whoWins = document.querySelector("p")
-
+const score1 = document.querySelector(".score1")
+const score2 = document.querySelector(".score2")
+const playername1 = document.querySelector(".playerone")
+const playername2 = document.querySelector(".playertwo")
 
 let a1 = document.querySelector("#a-one")
 let a2 = document.querySelector("#a-two")
@@ -54,11 +57,14 @@ function gameTicTacToe() {
         a3.classList.contains("X") && b2.classList.contains("X") && c1.classList.contains("X")) {
 
         //update score of player
-        playerOneScore++;
+        player1score++
+        score1.textContent = `${player1score}`
         //Change text with the winner
         whoWins.textContent = `${name1} win!`
         whoWins.style.display = "block"
         text.style.display = "none"
+        
+
         //Display button reset
         setTimeout(reStart, 2000)
         //O WINS
@@ -72,7 +78,8 @@ function gameTicTacToe() {
         a3.classList.contains("O") && b2.classList.contains("O") && c1.classList.contains("O")) {
 
         //update score of player
-        playerTwoScore++
+        player2score++
+        score2.textContent = `${player2score}`
         //Change text with the winner
         whoWins.textContent = `${name2} win!`
         whoWins.style.display = "block"
@@ -80,6 +87,10 @@ function gameTicTacToe() {
         //Display button reset
         setTimeout(reStart, 2000)
 
+    } else {
+        for (let i = 0;i < boxes.length; i++){
+            
+        }
     }
 }
 
@@ -121,6 +132,9 @@ function reStart(event) {
     player = 1
     whoWins.style.display = "none"
     text.style.display = "block"
+    playername1.textContent = 'Player One'
+    playername2.textContent = 'Player Two'
+
     for (let i = 0; i < boxes.length ; i++) {
         boxes[i].style.backgroundColor = "plum"
         boxes[i].classList.remove("X")
@@ -132,7 +146,10 @@ function reStart(event) {
 
 start.addEventListener("click", () => {
     name1 = document.querySelector(".p-one").value 
-    name2 =document.querySelector(".p-two").value
+    name2 = document.querySelector(".p-two").value
+    playername1.textContent = name1
+    playername2.textContent = name2
+    //score to 0
 })
 
 
