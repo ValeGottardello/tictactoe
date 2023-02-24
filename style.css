@@ -11,27 +11,26 @@ body {
 }
 header {
     width: 90%;
+    height: 200px;
     margin: 50px auto;
     display:grid;
-    grid-template-rows: 2fr 1fr;
-    gap:10px;
     align-items: center; 
-    justify-content: center;
-    position: relative;
-    left: -120px;
+    text-align: center;
 }
 header > h1{
-    font-size: 3.5rem;
+    font-size: 4.5rem;
 }
 h2{
     text-align: center;
+    font-size: 2rem;
+    letter-spacing: 2px;
 }
 
 .wrapper-page {
     width: 90%;
     /* height not working, fix it later */
     height: 100%;
-    margin: 90px auto;
+    margin: 50px auto;
     box-shadow: 7px 7px 0px 0px #d9d9d9;
     border-top-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -70,14 +69,18 @@ h2{
     justify-content: center;
     align-items: center;
 }
+.board > button:hover{
+    background-color: #ffbb00fb;
+}
 article > button{
     margin: 10px auto;
     box-shadow: 10px 10px 0px 0px #d9d9d9;
     border-radius: 30px;
 }
 .wrapper-main > section > p {
-    font-size: 2rem;
+    font-size: 3rem;
     display: none;
+
 }
 .wrapper-page{
     background-color: #ff005581;
@@ -86,6 +89,7 @@ article > button{
 .wrapper-options {
     background-color:#ffbb00cb;
     border-radius: 30px;
+    padding: 20px;
 }
 aside > article{
     margin-top: 5px;
@@ -97,23 +101,36 @@ aside > article > .scores,aside > article > .inputs{
     display: grid;
     gap:10px ;
     font-size: 1.3rem;
-    /* color: #f72584;
-    color: #FFBD00; */
+    height: 200px;
 }
 .inputs{
     justify-content: center;
 }
 input {
     font-size: 1.1rem;
+    color: grey;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px; 
+    height: 40px;
 }
 .buttons > button{
     box-shadow: 7px 7px 0px 0px #d9d9d9;
     border-top-left-radius: 15px;
     border-bottom-right-radius: 15px; 
     width: 70%;
-    height: 35%;
+    height: 20%;
     margin: 10px;
-    color: #ff005581;
+    color: #ff0055a8;
+    font-size: 1rem;
+    padding: 5px;
+    background-color: white;
+}
+.buttons{
+    align-self: center;
+}
+.buttons > button:hover{
+    background-color:rgb(156, 153, 153);
+    color:#ffbb00cb;
 }
 /* mediaquery */
 @media (max-width: 720px)  {

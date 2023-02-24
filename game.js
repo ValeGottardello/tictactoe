@@ -9,10 +9,10 @@ const start = document.querySelector(".start")
 const boxes = document.querySelectorAll(".board button")
 
 //elements to display
-const text = document.querySelector("h2")
-const whoWins = document.querySelector("p")
-const score1 = document.querySelector(".score1")
-const score2 = document.querySelector(".score2")
+const h2 = document.querySelector("h2")
+const whoWinsParr = document.querySelector("p")
+const numScore1 = document.querySelector(".score1")
+const numScore2 = document.querySelector(".score2")
 const playername1 = document.querySelector(".playerone")
 const playername2 = document.querySelector(".playertwo")
 //inputs-names
@@ -61,12 +61,16 @@ function gameTicTacToe(event) {
         a3.classList.contains("X") && b2.classList.contains("X") && c1.classList.contains("X")) {
         //update score of player
         player1score++
-        score1.textContent = `${player1score}`
+        numScore1.textContent = `${player1score}`
         //Change text with the winner
-        whoWins.textContent = `${name1} win!`
-        whoWins.style.display = "block"
-        text.style.display = "none"
-        
+        whoWinsParr.textContent = `${name1} win!`
+        whoWinsParr.style.display = "block"
+        h2.style.display = "none"
+        //disble the buttons when someone win
+        for(let i =0;i < boxes.length ; i++) {
+            boxes[i].disabled = true
+            
+        }
 
         //Display button reset
         setTimeout(reStart, 2000)
@@ -81,16 +85,19 @@ function gameTicTacToe(event) {
         a3.classList.contains("O") && b2.classList.contains("O") && c1.classList.contains("O")) {
         //update score of player
         player2score++
-        score2.textContent = `${player2score}`
+        numScore2.textContent = `${player2score}`
         //Change text with the winner
-        whoWins.textContent = `${name2} win!`
-        whoWins.style.display = "block"
-        text.style.display = "none"
+        whoWinsParr.textContent = `${name2} win!`
+        whoWinsParr.style.display = "block"
+        h2.style.display = "none"
+        //disabled the buttons when o win
+        boxes.forEach(box =>{
+            box.disabled = true
+        }) 
         //Display button reset
         setTimeout(reStart, 2000)
     } else {
         counter++ 
-        console.log(counter);
         if (counter === 9){    
             text.textContent = `It's a tie!`
             setTimeout(reStart, 3000)
@@ -105,10 +112,10 @@ function switchPlayers(event) {
         event.target.classList.add("X")
         //display a O in the button
         event.target.textContent = "X"
-        //this changes the player turn
+        //this change the player turn
         player = 2;
         // change text of turn of player
-        text.textContent = `Player ${name2}`
+        h2.textContent = `Turn is for: ${name2}`
         //change style of the box
         event.target.style.backgroundColor = "#FFBD00"
 
@@ -120,7 +127,8 @@ function switchPlayers(event) {
         //changes player turn
         player = 1;
         // change text of turn of player
-        text.textContent = `Player ${name1}`
+        h2.textContent = `The turn is for: ${name1}`
+        //change style of the box
         event.target.style.backgroundColor = "#f72584"
     }
     //call game function
@@ -132,12 +140,12 @@ function reStart(event) {
     //turn of player1
     player = 1
     //display who win 
-    whoWins.style.display = "none"
-    text.style.display = "block"
-    text.textContent = `Player ${name1}`
+    whoWinsParr.style.display = "none"
+    h2.style.display = "block"
+    h2.textContent = `The turn is for:${name1}`
     //reset the board
     for (let i = 0; i < boxes.length ; i++) {
-        boxes[i].style.backgroundColor = "rgba(221, 160, 221, 0.325)"
+        boxes[i].style.backgroundColor = "#ffbb00cb"
         boxes[i].classList.remove("X")
         boxes[i].classList.remove("O")
         boxes[i].disabled = false
@@ -157,14 +165,14 @@ btnReset.addEventListener("click",() =>{
     // reset turn to player 1
     player = 1
     //reset score of players
-    score1.textContent = "0"
-    score2.textContent = "0"
+    numScore1.textContent = "0"
+    numScore2.textContent = "0"
     //reset name of players
     document.querySelector(".playerone").textContent = "Player one" 
     document.querySelector(".playertwo").textContent = "Player Two"
     counter = 0 
     for (let i =0;i<boxes.length;i++) {
-        boxes[i].style.backgroundColor = "rgba(221, 160, 221, 0.325)"
+        boxes[i].style.backgroundColor = "#ffbb00cb"
         boxes[i].disabled = false
         boxes[i].textContent = ""
     }
@@ -178,12 +186,12 @@ start.addEventListener("click", () => {
     playername1.textContent = name1
     playername2.textContent = name2
     //display the scores to 0
-    score1.textContent = "0"
-    score2.textContent = "0"
+    numScore1.textContent = "0"
+    numScore2.textContent = "0"
     //set the turn to player 1
     player = 1
     //display turn of player 1
-    text.textContent = `Player ${name1}`
+    h2.textContent = `The turn is for:${name1}`
     counter = 0 
     
 })
