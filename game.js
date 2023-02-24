@@ -7,6 +7,7 @@ let player2score = 0
 const btnReset = document.querySelector(".reset")
 const start = document.querySelector(".start")
 const boxes = document.querySelectorAll(".board button")
+
 //elements to display
 const text = document.querySelector("h2")
 const whoWins = document.querySelector("p")
@@ -47,7 +48,7 @@ let counter = 0
 
 //FUNCTIONS:
 //GAME
-function gameTicTacToe() {
+function gameTicTacToe(event) {
     //checks if any of the winning arrays contains "x" or "o"
     //X WINS
     if (a1.classList.contains("X") && a2.classList.contains("X") && a3.classList.contains("X") ||
@@ -58,7 +59,6 @@ function gameTicTacToe() {
         a3.classList.contains("X") && b3.classList.contains("X") && c3.classList.contains("X") ||
         a1.classList.contains("X") && b2.classList.contains("X") && c3.classList.contains("X") ||
         a3.classList.contains("X") && b2.classList.contains("X") && c1.classList.contains("X")) {
-
         //update score of player
         player1score++
         score1.textContent = `${player1score}`
@@ -79,7 +79,6 @@ function gameTicTacToe() {
         a3.classList.contains("O") && b3.classList.contains("O") && c3.classList.contains("O") ||
         a1.classList.contains("O") && b2.classList.contains("O") && c3.classList.contains("O") ||
         a3.classList.contains("O") && b2.classList.contains("O") && c1.classList.contains("O")) {
-
         //update score of player
         player2score++
         score2.textContent = `${player2score}`
@@ -100,29 +99,32 @@ function gameTicTacToe() {
 }
 //TURNS
 function switchPlayers(event) {
-    let buttonClicked = event.target
-    buttonClicked.disabled = true
+    event.target.disabled = true
     if (player == 1) {
         //player one play
         event.target.classList.add("X")
+        //display a O in the button
+        event.target.textContent = "X"
         //this changes the player turn
         player = 2;
         // change text of turn of player
         text.textContent = `Player ${name2}`
         //change style of the box
-        event.target.style.backgroundColor = "purple"
+        event.target.style.backgroundColor = "#FFBD00"
 
     } else {
         //player two play
         event.target.classList.add("O")
+        //display a O in the button
+        event.target.textContent = "O"
         //changes player turn
         player = 1;
         // change text of turn of player
         text.textContent = `Player ${name1}`
-        event.target.style.backgroundColor = "deeppink"
+        event.target.style.backgroundColor = "#f72584"
     }
     //call game function
-    gameTicTacToe();
+    gameTicTacToe(event);
     //call reset with conditions
 }
 //RESTART each game - no the entire game// doesn't change scores to 0
@@ -135,10 +137,11 @@ function reStart(event) {
     text.textContent = `Player ${name1}`
     //reset the board
     for (let i = 0; i < boxes.length ; i++) {
-        boxes[i].style.backgroundColor = "plum"
+        boxes[i].style.backgroundColor = "rgba(221, 160, 221, 0.325)"
         boxes[i].classList.remove("X")
         boxes[i].classList.remove("O")
         boxes[i].disabled = false
+        boxes[i].textContent = ""
     }  
     //for ties 
     counter = 0
@@ -147,8 +150,9 @@ function reStart(event) {
 //clicked buttons of the game
 boxes.forEach(box => {
     box.addEventListener("click", switchPlayers)
+
 })
-//reset the game from scratch
+//reset the game from scratch (difference with restart is the scores)
 btnReset.addEventListener("click",() =>{
     // reset turn to player 1
     player = 1
@@ -157,8 +161,13 @@ btnReset.addEventListener("click",() =>{
     score2.textContent = "0"
     //reset name of players
     document.querySelector(".playerone").textContent = "Player one" 
-    document.querySelector(".playertwo").textContent = "Player one".textContent = "Player Two"
+    document.querySelector(".playertwo").textContent = "Player Two"
     counter = 0 
+    for (let i =0;i<boxes.length;i++) {
+        boxes[i].style.backgroundColor = "rgba(221, 160, 221, 0.325)"
+        boxes[i].disabled = false
+        boxes[i].textContent = ""
+    }
 })
 //start - set up the values to start 
 start.addEventListener("click", () => {
@@ -176,6 +185,7 @@ start.addEventListener("click", () => {
     //display turn of player 1
     text.textContent = `Player ${name1}`
     counter = 0 
+    
 })
 
 

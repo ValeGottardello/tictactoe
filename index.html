@@ -9,56 +9,54 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Ubuntu&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Titan+One&family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <h1 data-aos="zoom-in">TIC TAC TOE</h1>
+        <h1 data-aos="flip-right">TIC TAC TOE</h1>
+         <!-- who is the turn -->
+         <h2 class="nameof-player">The turn is for: Player One</h2>
     </header>
     <div class="wrapper-page">
-        <div class="wrapper-main" data-aos="flip-left">
-                <section>
-                    <!-- who is the turn -->
-                    <h2 class="nameof-player">The turn is for: Player One</h2>
-                    <p>
-                        <!-- info who win -->
-                    </p>
-                </section>
-                <section>
-                    <article class="board">
-                        <!-- buttons goes here -->
-                        <button id="a-one"></button>
-                        <button id="a-two"></button>
-                        <button id="a-three"></button>
-                        <button id="b-one"></button>
-                        <button id="b-two"></button>
-                        <button id="b-three"></button>
-                        <button id="c-one"></button>
-                        <button id="c-two"></button>
-                        <button id="c-three"></button>
-                    </article>
-                </section>
+        <div class="wrapper-main" data-aos="flip-right">
+            <section>
+                <p>
+                    <!-- info who win -->
+                </p>
+            </section>
+            <section>
+                <article class="board">
+                    <!-- buttons goes here -->
+                    <button id="a-one"></button>
+                    <button id="a-two"></button>
+                    <button id="a-three"></button>
+                    <button id="b-one"></button>
+                    <button id="b-two"></button>
+                    <button id="b-three"></button>
+                    <button id="c-one"></button>
+                    <button id="c-two"></button>
+                    <button id="c-three"></button>
+                </article>
+            </section>
         </div>
         <div class="wrapper-options" data-aos="flip-right">
-            <aside data-aos="flip-left">
+            <aside>
                 <article>
-                    <div>
-                    <!-- name of players -->
-                    <label for="name">Player One</label>
-                    <input type="text" value="" placeholder="Name" class="p-one">
-                </div>
-                <div>
-                    <label for="name">Player Two</label>
-                    <input type="text" value="" placeholder="Name" class="p-two">
-                </div>
-                <div class="buttons">
-                    <button class="start">Let's play!</button>
-                    <!-- options of players -->
-                    <button class="reset">Restart!</button>
-                </div>
-                <article>
+                    <div class="inputs">
+                        <!-- name of players -->
+                        <label for="name">Player One</label>
+                        <input type="text" value="" placeholder="Name" class="p-one">
+                        <label for="name">Player Two</label>
+                        <input type="text" value="" placeholder="Name" class="p-two">
+                    </div>
+                    <div class="buttons">
+                        <button class="start">Let's play!</button>
+                        <!-- options of players -->
+                        <button class="reset">Restart!</button>
+                    </div>
                     <div class="scores">
                         <h3>Scores</h3>
                         <p class="playerone">Player One </p><span class="score1"></span>
@@ -72,7 +70,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-      </script>
+    </script>
 </body>
 
 </html>
