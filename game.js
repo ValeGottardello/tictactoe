@@ -1,23 +1,23 @@
 
-
 let player = 1
 let playerTurn = "Player 1"
 let player1score = 0
 let player2score = 0
 //dom elements buttons
 const btnReset = document.querySelector(".reset")
-let name1 = document.querySelector(".p-one").value
-let name2 = document.querySelector(".p-two").value
 const start = document.querySelector(".start")
-// //dom elements buttons -- choicesgame
 const boxes = document.querySelectorAll(".board button")
+//elements to display
 const text = document.querySelector("h2")
 const whoWins = document.querySelector("p")
 const score1 = document.querySelector(".score1")
 const score2 = document.querySelector(".score2")
 const playername1 = document.querySelector(".playerone")
 const playername2 = document.querySelector(".playertwo")
-
+//inputs-names
+let name1 = document.querySelector(".p-one").value
+let name2 = document.querySelector(".p-two").value
+//winning combinations
 let a1 = document.querySelector("#a-one")
 let a2 = document.querySelector("#a-two")
 let a3 = document.querySelector("#a-three")
@@ -29,7 +29,7 @@ let b3 = document.querySelector("#b-three")
 let c1 = document.querySelector("#c-one")
 let c2 = document.querySelector("#c-two")
 let c3 = document.querySelector("#c-three")
-
+let counter = 0
 // winningOptions 
 // a1+a2+a3
 // b1+b2+b3
@@ -44,8 +44,11 @@ let c3 = document.querySelector("#c-three")
 
 //player one = x
 //player two = o
-//checks if any of the winning arrays contains "x" or "o"
+
+//FUNCTIONS:
+//GAME
 function gameTicTacToe() {
+    //checks if any of the winning arrays contains "x" or "o"
     //X WINS
     if (a1.classList.contains("X") && a2.classList.contains("X") && a3.classList.contains("X") ||
         b1.classList.contains("X") && b2.classList.contains("X") && b3.classList.contains("X") ||
@@ -86,20 +89,16 @@ function gameTicTacToe() {
         text.style.display = "none"
         //Display button reset
         setTimeout(reStart, 2000)
-
     } else {
-        for (let i = 0;i < boxes.length; i++){
-            
+        counter++ 
+        console.log(counter);
+        if (counter === 9){    
+            text.textContent = `It's a tie!`
+            setTimeout(reStart, 3000)
         }
-    }
+    }     
 }
-
-//change the player
-boxes.forEach(box => {
-    box.addEventListener("click", switchPlayers)
-})
-btnReset.addEventListener("click",reStart)
-
+//TURNS
 function switchPlayers(event) {
     let buttonClicked = event.target
     buttonClicked.disabled = true
@@ -109,7 +108,7 @@ function switchPlayers(event) {
         //this changes the player turn
         player = 2;
         // change text of turn of player
-        text.textContent = `Player ${name1}`
+        text.textContent = `Player ${name2}`
         //change style of the box
         event.target.style.backgroundColor = "purple"
 
@@ -119,127 +118,66 @@ function switchPlayers(event) {
         //changes player turn
         player = 1;
         // change text of turn of player
-        text.textContent = `Player ${name2}`
+        text.textContent = `Player ${name1}`
         event.target.style.backgroundColor = "deeppink"
     }
     //call game function
     gameTicTacToe();
     //call reset with conditions
 }
-
-//return each element to 0
+//RESTART each game - no the entire game// doesn't change scores to 0
 function reStart(event) {
+    //turn of player1
     player = 1
+    //display who win 
     whoWins.style.display = "none"
     text.style.display = "block"
-    playername1.textContent = 'Player One'
-    playername2.textContent = 'Player Two'
-
+    text.textContent = `Player ${name1}`
+    //reset the board
     for (let i = 0; i < boxes.length ; i++) {
         boxes[i].style.backgroundColor = "plum"
         boxes[i].classList.remove("X")
         boxes[i].classList.remove("O")
         boxes[i].disabled = false
-    }
-    
+    }  
+    //for ties 
+    counter = 0
 }
-
+//event listener: 
+//clicked buttons of the game
+boxes.forEach(box => {
+    box.addEventListener("click", switchPlayers)
+})
+//reset the game from scratch
+btnReset.addEventListener("click",() =>{
+    // reset turn to player 1
+    player = 1
+    //reset score of players
+    score1.textContent = "0"
+    score2.textContent = "0"
+    //reset name of players
+    document.querySelector(".playerone").textContent = "Player one" 
+    document.querySelector(".playertwo").textContent = "Player one".textContent = "Player Two"
+    counter = 0 
+})
+//start - set up the values to start 
 start.addEventListener("click", () => {
+    //change the name of player with the inputs names
     name1 = document.querySelector(".p-one").value 
     name2 = document.querySelector(".p-two").value
+    //display the names
     playername1.textContent = name1
     playername2.textContent = name2
-    //score to 0
+    //display the scores to 0
+    score1.textContent = "0"
+    score2.textContent = "0"
+    //set the turn to player 1
+    player = 1
+    //display turn of player 1
+    text.textContent = `Player ${name1}`
+    counter = 0 
 })
 
 
 
-
-
-//ONE OPTION FOR GAME FUNCTIONS WITH LOOP AND ARRAY
-
-//     //horizontals
-//     [`${document.querySelector("#a-one")}`, `${document.querySelector("#a-two")}`, `${document.querySelector("#a-three")}`],
-
-//     [`${document.querySelector("#b-one")}`, `${document.querySelector("#b-two")}`, `${document.querySelector("#b-three")}`],
-
-//     [`${document.querySelector("#c-one")}`, `${document.querySelector("#c-two")}`, `${document.querySelector("#c-three")}`],
-
-//     //verticals
-//     [`${document.querySelector("#a-one")}`, `${document.querySelector("#b-one")}`, `${document.querySelector("#c-one")}`],
-
-//     [`${document.querySelector("#a-two")}`, `${document.querySelector("#b-two")}`, `${document.querySelector("#c-two")}`],
-
-//     [`${document.querySelector("#a-three")}`, `${document.querySelector("#b-three")}`, `${document.querySelector("#c-three")}`],
-
-//     //diagonals
-//     [`${document.querySelector("#a-one")}`, `${document.querySelector("#b-two")}`, `${document.querySelector("#c-three")}`],
-
-//     [`${document.querySelector("#a-three")}`, `${document.querySelector("#b-two")}`, `${document.querySelector("#c-one")}`]
-// ]
-
-
-//winning options goes for options of for loop
-// function gameTicTacToe() {
-//     for (let i = 0; i < boxes.length; i++) {
-//         //X WINS
-//         if (winningOptions[i][0].classList.contains("X") && winningOptions[i][1].classList.contains("X") && winningOptions[i][2].classList.contains("X")) {
-
-//             //update score of player
-//             playerOneScore++;
-//             //Change text with the winner
-//             document.querySelector("p").textContent = "Player 1 win"
-//             //Display button reset
-//             btnReset.style.display = "block"
-//         //O WINS
-//         } else if (winningOptions[i][0].classList.contains("O") && winningOptions[i][1].classList.contains("O") && winningOptions[i][2].classList.contains("0")) {
-
-//             //update score of player
-//             playerTwoScore++
-//             //Change text with the winner
-//             document.querySelector("p").textContent = "Player Two win"
-//             //Display button reset
-//             btnReset.style.display = "block"
-
-//         } else {
-
-//             document.querySelector("p").textContent = "It's a tie"
-//             //Display button reset
-//             btnReset.style.display = "block"
-//         }
-//     };
-// }
-
-
-//OPTION TWO WITH JUST ONE PLAYER AND NUMBER COMBINATIONS
-
-// function gameOnePlayer(event) {
-
-//     let boxClicked = Number(event.target.dataset.num)
-//     console.log(boxClicked);
-//     arrayofChoices.push(boxClicked) 
-//     counter++
-
-//     if () {
-//         let numbersOfChoices =  Number(arrayofChoices.join(""))
-//         console.log(numbersOfChoices);
-
-//         if (numbersOfChoices == combination1 ||numbersOfChoices ==  combination2 || numbersOfChoices ==  combination3 || numbersOfChoices == combination4 || numbersOfChoices == combination5 || numbersOfChoices == combination6 ||numbersOfChoices ==  combination7 || numbersOfChoices == combination8) {
-//             console.log('you win');
-
-//         } else {
-//             console.log('you loose');
-//         }
-//     }
-// }
-
-
-// boxes.forEach(box => {
-//     box.addEventListener('click', gameOnePlayer)
-// })
-
-//buttons functions
-// btnReset.addEventListener('click', () => {
-//reset the changes in the box
-// })
 

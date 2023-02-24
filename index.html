@@ -7,14 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIC TAC TOE - Proyect 1 - GA Maria Valentina Gottardello</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <h1>TIC TAC TOE</h1>
+        <h1 data-aos="zoom-in">TIC TAC TOE</h1>
     </header>
     <div class="wrapper-page">
-        <div class="wrapper-main">
+        <div class="wrapper-main" data-aos="flip-left">
                 <section>
                     <!-- who is the turn -->
                     <h2 class="nameof-player">The turn is for: Player One</h2>
@@ -37,8 +41,8 @@
                     </article>
                 </section>
         </div>
-        <div class="wrapper-options">
-            <aside>
+        <div class="wrapper-options" data-aos="flip-right">
+            <aside data-aos="flip-left">
                 <article>
                     <div>
                     <!-- name of players -->
@@ -50,9 +54,9 @@
                     <input type="text" value="" placeholder="Name" class="p-two">
                 </div>
                 <div class="buttons">
-                    <button class="start">Let's Play!</button>
+                    <button class="start">Let's play!</button>
                     <!-- options of players -->
-                    <button class="reset">Play Again</button>
+                    <button class="reset">Restart!</button>
                 </div>
                 <article>
                     <div class="scores">
@@ -65,6 +69,10 @@
         </div>
     </div>
     <script src="game.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
 </body>
 
 </html>
