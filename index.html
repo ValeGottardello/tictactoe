@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIC TAC TOE - Proyect 1 - GA Maria Valentina Gottardello</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Titan+One&family=Ubuntu&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-</head>
-<body>
-    <header>
-        <h1 class="animate__animated animate__bounceInDown">TIC TAC TOE</h1>
-        <!-- who is the turn -->
-        <h2 class="nameof-player animate__animated animate__jello">The turn is for: Player One</h2>
-    </header>
-    <div class="wrapper-page">
-        <div class="wrapper-main" data-aos="flip-right">
-            <section>
-                <p class="animate__animated">
-                    -<!-- info who win -->
-                </p>
-            </section>
-            <section>
-                <article class="board">
-                    <!-- buttons goes here -->
-                    <button class="animate__animated animate__flipInY" id="a-one"></button>
-                    <button class="animate__animated animate__flipInY" id="a-two"></button>
-                    <button class="animate__animated animate__flipInY" id="a-three"></button>
-                    <button class="animate__animated animate__flipInY"id="b-one"></button>
-                    <button class="animate__animated animate__flipInY" id="b-two"></button>
-                    <button class="animate__animated animate__flipInY" id="b-three"></button>
-                    <button class="animate__animated animate__flipInY" id="c-one"></button>
-                    <button class="animate__animated animate__flipInY" id="c-two"></button>
-                    <button class="animate__animated animate__flipInY" id="c-three"></button>
-                </article>
-            </section>
-        </div>
-        <div class="wrapper-options" data-aos="flip-right">
-            <aside>
-                <article>
-                    <div class="inputs">
-                        <!-- name of players -->
-                        <label for="name">Player One</label>
-                        <input type="input" value="" placeholder="Name" class="p-one">
-                        <label for="name">Player Two</label>
-                        <input type="text" value="" placeholder="Name" class="p-two">
-                    </div>
-                    <div class="buttons">
-                        <button class="start">Let's play!</button>
-                        <!-- options of players -->
-                        <button class="reset">Restart!</button>
-                    </div>
-                    <div class="scores">
-                        <h3>Scores</h3>
-                        <p class="playerone">Player One </p><span class="score1">0</span>
-                        <p class="playertwo">Player Two </p><span class="score2">0</span>
-                    </div>
-                </article>
-            </aside>
-        </div>
-    </div>
-    <script src="game.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-</body>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TIC TAC TOE - Proyect 1 - GA Maria Valentina Gottardello</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Titan+One&family=Ubuntu&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    </head>
+    <body>
+        <header>
+            <h1 class="animate__animated animate__bounceInDown">TIC TAC TOE</h1>
+            <!-- who is the turn -->
+            <h2 class="nameof-player animate__animated animate__jello">The turn is for: Player One</h2>
+        </header>
+        <main class="wrapper-page">
+            <div class="wrapper-main" data-aos="flip-right">
+                <section>
+                    <p class="animate__animated">
+                        -<!-- info who win -->
+                    </p>
+                </section>
+                <section>
+                    <article class="board">
+                        <!-- buttons goes here -->
+                        <button class="animate__animated animate__flipInY" id="a-one"></button>
+                        <button class="animate__animated animate__flipInY" id="a-two"></button>
+                        <button class="animate__animated animate__flipInY" id="a-three"></button>
+                        <button class="animate__animated animate__flipInY"id="b-one"></button>
+                        <button class="animate__animated animate__flipInY" id="b-two"></button>
+                        <button class="animate__animated animate__flipInY" id="b-three"></button>
+                        <button class="animate__animated animate__flipInY" id="c-one"></button>
+                        <button class="animate__animated animate__flipInY" id="c-two"></button>
+                        <button class="animate__animated animate__flipInY" id="c-three"></button>
+                    </article>
+                </section>
+            </div>
+            <div class="wrapper-options" data-aos="flip-right">
+                <aside>
+                    <article>
+                        <div class="inputs">
+                            <!-- name of players -->
+                            <label for="name">Player One</label>
+                            <input type="input" value="" placeholder="Name" class="p-one">
+                            <label for="name">Player Two</label>
+                            <input type="text" value="" placeholder="Name" class="p-two">
+                        </div>
+                        <div class="buttons">
+                            <button class="start">Let's play!</button>
+                            <!-- options of players -->
+                            <button class="reset">Restart!</button>
+                        </div>
+                        <div class="scores">
+                            <h3>Scores</h3>
+                            <p class="playerone">Player One </p><span class="score1">0</span>
+                            <p class="playertwo">Player Two </p><span class="score2">0</span>
+                        </div>
+                    </article>
+                </aside>
+            </div>
+        </main>
+        <script src="app.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+    </body>
 </html>
