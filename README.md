@@ -7,6 +7,8 @@ This Tic-Tac-Toe consists on a very simple game!
 The goal of the game is to achieve a line of three elements (X or O in my version of the game) before the other contestant.
 
 There're probably many features of the game that I could have improved, however I am very happy with the result and I hope you enjoy it as well!
+## Mock up 
+![Mock up ](/images/mockup.jpg)
 
 ## Technologies:
 
